@@ -24,9 +24,9 @@ public class UserService {
         return userPayload;
     }
 
-    public List<UserEntity> getAll(){
-        
-        List<UserEntity> listaUsers =  getListFromIterator(userRepository.findAll().iterator());
+    public List<UserEntity> getAll() {
+
+        List<UserEntity> listaUsers = getListFromIterator(userRepository.findAll().iterator());
         return listaUsers;
     }
 

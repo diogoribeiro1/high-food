@@ -19,25 +19,23 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
-    public @ResponseBody List<UserEntity> getUsers(){
+    @GetMapping("/user")
+    public @ResponseBody List<UserEntity> getUsers() {
         return userService.getAll();
     }
 
     @PostMapping("/user/register")
-    public UserEntity register(@RequestBody UserEntity userEntity){
+    public UserEntity register(@RequestBody UserEntity userEntity) {
         userEntity.setRole(Role.USER);
-       var userPayload =  userService.create(userEntity);
-      return userPayload;  
+        var userPayload = userService.create(userEntity);
+        return userPayload;
     }
 
     @PostMapping("/admin/register")
-    public UserEntity registerAdmin(@RequestBody UserEntity userEntity){
+    public UserEntity registerAdmin(@RequestBody UserEntity userEntity) {
         userEntity.setRole(Role.ADMIN);
-       var userPayload =  userService.create(userEntity);
-      return userPayload;  
+        var userPayload = userService.create(userEntity);
+        return userPayload;
     }
 
-
-    
 }
